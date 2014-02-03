@@ -1,0 +1,1 @@
+This is the web version of our Sudoku Project. The goal is to build a website that will allow us to play the game.
