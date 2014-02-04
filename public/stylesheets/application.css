@@ -2,17 +2,50 @@ div.box, div.cell {
 	display: inline-block;
 }
 
+/*div.box {
+	border: 2px solid blue;
+	border-radius: 8;
+}*/
+
 .cell input {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	border-radius: 2;
+	border: 1px solid #212369;
+	background: white;
+	font-size: 20px;
 }
 
 #sudoku {
 	font-size: 0;
 	text-align: center;
+	padding-top: 50px
+
 }
 
 body {
 	text-align: center;
-	font-family: Arial;
+	font-family: Monaco;
+	background: #32425c;
+}
+
+body h1 {
+	font-family: herculanum;
+	background: #9E4953;
+	color: white;
+	padding: 10 9 8 7;
+	width: 100%;
+	font-size: 2em;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background: #9E4953;  
+	color: white;
+	padding: 5 9 8 7;
+	font-family: Calibri;
 }
