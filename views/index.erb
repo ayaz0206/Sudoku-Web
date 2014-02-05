@@ -12,7 +12,8 @@
 </div>
 <div id="sudoku">
 		<form action="/" method="post">
-		</form>	
+		 <button>Check Solution</button>
+  </form>	
   <!-- one div for each row -->
   <% 3.times do |row| %>
     <div class='row'>
@@ -23,7 +24,7 @@
          <% 3.times do |cell_row| %>
               <div class="cell-row">
              <% 3.times do |cell| %>
-             		<%= partial :cell, :locals=>{cell_index => row * 27 + box * 3 + cell_row * 9 + cell} %>
+             		<%= partial :cell, :locals=>{:cell_index => row * 27 + box * 3 + cell_row * 9 + cell} %>
                 <% end %>
               </div>
             <% end %>
@@ -31,8 +32,8 @@
         <% end %>
       </div>
     <% end %>
+   
   </div>
-  <button>Check Solution</button>
   <footer>Ayaz G. @Makers Academy - January 2014.</footer>
 </body>
 </html>

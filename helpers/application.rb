@@ -2,12 +2,12 @@ helpers do
 
 	def colour_class(solution_to_check, puzzle_value, current_solution_value, solution_value)
 		must_be_guessed = puzzle_value == 0
-		tired_to_guess = current_solution_value.to_i != 0
+		tried_to_guess = current_solution_value.to_i != 0
 		guessed_incorrectly = current_solution_value != solution_value
 
 		if solution_to_check &&
 			must_be_guessed &&
-			tired_to_guess &&
+			tried_to_guess &&
 			guessed_incorrectly
 			'incorrect'
 		elsif !must_be_guessed
