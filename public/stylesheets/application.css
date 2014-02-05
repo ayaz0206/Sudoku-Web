@@ -50,3 +50,11 @@ footer {
 	padding: 5 9 8 7;
 	font-family: Calibri;
 }
+
+.incorrect {
+	background-color: yellow;
+}
+
+.value-provided {
+	background-color: #DDD;
+}
