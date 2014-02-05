@@ -1,31 +1,16 @@
 require 'sinatra'
+require 'sinatra/partial'
+require 'rack-flash'
 require_relative './lib/sudoku'
 require_relative './lib/cell'
 require_relative './helpers/application'
 
 enable :sessions
+set :session_secret, "Cool. This is the secret key."
+use Rack::Flash 
+set :partial_template_engine, :erb
 
-helpers do
 
-	def colour_class(solution_to_check, puzzle_value, current_solution_value, solution_value)
-		must_be_guessed = puzzle_value == 0
-		tired_to_guess = current_solution_value.to_i != 0
-		guessed_incorrectly = current_solution_value != solution_value
-
-		if solution_to_check &&
-			must_be_guessed &&
-			tired_to_guess &&
-			guessed_incorrectly
-			'incorrect'
-		elsif !must_be_guessed
-			'value-provided'
-		end
-	end
-
-	def cell_value(value)
-		value.to_i == 0 ? '' : value
-	end
-end
 
 def random_sudoku
 	seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
@@ -64,6 +49,9 @@ end
 
 def prepare_to_check_solution
 	@check_solution = session[:check_solution]
+	if @check_solution
+		flash[:notice] = "Incorrect values are highlighted in yellow"
+	end
 	session[:check_solution] = nil 
 end
 
