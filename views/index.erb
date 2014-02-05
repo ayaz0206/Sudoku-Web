@@ -12,7 +12,6 @@
 </div>
 <div id="sudoku">
 		<form action="/" method="post">
-		 <button>Check Solution</button>
   </form>	
   <!-- one div for each row -->
   <% 3.times do |row| %>
@@ -32,7 +31,11 @@
         <% end %>
       </div>
     <% end %>
-   
+   <div id="solve">
+   <form action="/solution" method="get">
+   <button>Check Solution</button>
+   </form>
+   </div>
   </div>
   <footer>Ayaz G. @Makers Academy - January 2014.</footer>
 </body>
