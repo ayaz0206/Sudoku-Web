@@ -53,7 +53,7 @@ end
 def prepare_to_check_solution
 	@check_solution = session[:check_solution]
 	if @check_solution
-		flash[:notice] = "Incorrect values are highlighted in yellow"
+		flash.now[:notice] = "Incorrect values are highlighted in yellow"
 	end
 	session[:check_solution] = nil 
 end
@@ -69,12 +69,26 @@ get '/' do
 end
 
 get '/solution' do
-	@check_solution=false
+	@check_solution= false
 	@current_solution = session[:solution]
 	@puzzle = session[:puzzle]
 	@solution = session[:solution]
-
 	erb :index
+end
+
+get '/check' do
+	@check_solution= true
+	@current_solution = session[:solution]
+	@puzzle = session[:puzzle]
+	@solution = session[:solution]
+	erb :index
+	redirect to ("/")
+end
+
+
+get '/restart' do
+	session[:current_solution] = nil
+	redirect to ("/")
 end
 
 post '/' do
